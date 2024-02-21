@@ -1,23 +1,30 @@
 package lucafavaretto.U5W3D3.adapter;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Date;
 
+@Getter
+@Setter
 public class AdapterInfo implements DataSource {
     private Info info;
 
     public AdapterInfo(Info info) {
         this.info = info;
     }
+
     @Override
-    public String getNomeCompleto() {
-        return info.getNome()+"_"+info.getCognome();
+    public String getFullName() {
+        return info.getName() + "_" + info.getSurname();
     }
 
     @Override
-    public int getEta() {
+    public int getAge() {
         Date currentDate = new Date();
-        long timeDifference = currentDate.getTime() - info.getDataDiNascita().getTime();
+        long timeDifference = currentDate.getTime() - info.getBirthdate().getTime();
         return (int) (timeDifference / (365 * 24 * 60 * 60 * 1000L));
     }
+
 
 }

@@ -4,17 +4,18 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
+
 @Getter
 @Setter
-public class Info  {
-    private String nome;
-    private String cognome;
-    private Date dataDiNascita;
+public class Info {
+    private String name;
+    private String surname;
+    private Date birthdate;
 
-    public Info(String nome, String cognome, Date dataDiNascita) {
-        this.nome = nome;
-        this.cognome = cognome;
-        this.dataDiNascita = dataDiNascita;
+    public Info(String name, String surname, Date birthdate) {
+        this.name = name;
+        this.surname = surname;
+        this.birthdate = birthdate;
     }
 
 

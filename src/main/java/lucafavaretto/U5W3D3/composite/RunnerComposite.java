@@ -9,49 +9,42 @@ import java.util.*;
 public class RunnerComposite implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
-        Pagine pag1 = new Pagine("pagina 1", 1);
-        Pagine pag2 = new Pagine("pagina 2", 2);
-        Pagine pag3 = new Pagine("pagina 3", 3);
-        Pagine pag4 = new Pagine("pagina 4", 4);
-        Pagine pag5 = new Pagine("pagina 5", 5);
-        Pagine pag6 = new Pagine("pagina 6", 6);
+        Page pag1 = new Page("pagina 1", 1);
+        Page pag2 = new Page("pagina 2", 2);
+        Page pag3 = new Page("pagina 3", 3);
+        Page pag4 = new Page("pagina 4", 4);
+        Page pag5 = new Page("pagina 5", 5);
+        Page pag6 = new Page("pagina 6", 6);
 
-        Set<Pagine> listP1 = new HashSet<>();
+        Set<BookElement> listP1 = new HashSet<>();
         listP1.add(pag1);
         listP1.add(pag2);
         listP1.add(pag3);
 
-        Set<Pagine> listP2 = new HashSet<>();
+        Set<BookElement> listP2 = new HashSet<>();
         listP2.add(pag4);
         listP2.add(pag5);
         listP2.add(pag6);
 
+        Section sezione = new Section("sotto capitolo");
+        sezione.setBookElements(listP1);
 
-        Sezione sezione = new Sezione("sotto capitolo");
-        sezione.setPagine(listP1);
-        Set<Sezione> listSez = new HashSet<>();
-        listSez.add(sezione);
+        Section sezioneC = new Section("capitolo");
+        sezioneC.setBookElements(listP2);
+        sezioneC.addBookEl(sezione);
 
-
-        Sezione sezioneC = new Sezione("capitolo");
-        sezioneC.setPagine(listP2);
-        sezioneC.setSezioni(listSez);
-
-        Set<Sezione> listS = new HashSet<>();
+        Set<BookElement> listS = new HashSet<>();
         listS.add(sezioneC);
 
-
-        Autore autore = new Autore("orman", "cagnoni");
-        Set<Autore> listA = new HashSet<>();
+        Author autore = new Author("orman", "cagnoni");
+        Set<Author> listA = new HashSet<>();
         listA.add(autore);
 
-        Libro libro = new Libro("titolo", listA, 12.20);
-        libro.setSezioni(listS);
+        Book libro = new Book("titolo", listA, listS, 12.20);
 
         System.out.println(libro);
 
-        System.out.println("totale pagine " + libro.getNumeroPagine());
-
+        System.out.println("totale pagine " + libro.getNumPage());
 
     }
 }
