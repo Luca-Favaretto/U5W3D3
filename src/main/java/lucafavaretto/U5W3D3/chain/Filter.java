@@ -1,5 +1,9 @@
 package lucafavaretto.U5W3D3.chain;
 
+import lombok.Setter;
+
+@Setter
+
 public abstract class Filter {
     private Filter nextFilter;
 
