@@ -7,7 +7,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 @Component
-public class RunnerExercise implements CommandLineRunner {
+public class RunnerAdapter implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         Info infoUser=new Info("luca","favaretto",new Date(1995, Calendar.NOVEMBER,16));
